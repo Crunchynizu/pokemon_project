@@ -1,0 +1,358 @@
+/* Pokemon-themed CSS without @apply directives */
+
+/* Pokemon Color Theme Variables */
+:root {
+  --pokemon-red: #ff5350;
+  --pokemon-blue: #3b4cca;
+  --pokemon-yellow: #ffde00;
+  --pokemon-light-blue: #7bb7e2;
+  --pokemon-light-red: #ff857c;
+  --pokemon-cream: #f0e6bc;
+  --pokemon-green: #4caf50;
+  --pokemon-dark: #2a2a2a;
+}
+
+/* Base styles */
+body {
+  background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+  font-family: Arial, sans-serif;
+  color: #1f2937;
+  min-height: 100vh;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--pokemon-blue);
+}
+
+/* Button styles */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 76, 202, 0.5);
+}
+
+.btn-primary {
+  background: linear-gradient(to right, var(--pokemon-blue), var(--pokemon-light-blue));
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-success {
+  background: linear-gradient(to right, var(--pokemon-green), #81c784);
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-success:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+.form-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+}
+
+.form-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 76, 202, 0.5);
+  border-color: transparent;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 0.25rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Message styles */
+.message {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.message-success {
+  background: linear-gradient(to right, #ecfdf5, #d1fae5);
+  color: #065f46;
+  border-left: 4px solid var(--pokemon-green);
+}
+
+.message-error {
+  background: linear-gradient(to right, #fef2f2, #fee2e2);
+  color: #991b1b;
+  border-left: 4px solid var(--pokemon-red);
+}
+
+/* Pokemon component styles */
+.pokemon-card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.pokemon-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-stats {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(to bottom right, #f9fafb, var(--pokemon-cream));
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--pokemon-blue);
+}
+
+.stat-label {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.stat-value {
+  font-weight: 700;
+  color: var(--pokemon-blue);
+}
+
+.prediction-result {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(to right, var(--pokemon-cream), #fefce8);
+  border-radius: 0.75rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.model-select {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(to right, #eff6ff, rgba(123, 183, 226, 0.2));
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Component */
+header {
+  background: linear-gradient(to right, var(--pokemon-red), var(--pokemon-light-red));
+  color: white;
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for navbar being inside header */
+header nav {
+  background-color: transparent;
+  padding: 0.5em 0;
+}
+
+/* Navigation Component */
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--pokemon-yellow);
+}
+
+/* Table Styles */
+.predictions-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.predictions-table th {
+  background-color: var(--pokemon-blue);
+  color: white;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.predictions-table td {
+  padding: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+  background-color: white;
+}
+
+.predictions-table tr:hover td {
+  background-color: #f9fafb;
+}
+
+/* Responsive Mobile Adjustments */
+@media (max-width: 640px) {
+  header {
+    text-align: center;
+  }
+  
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 0.25rem 0.5rem;
+  }
+}
+
+/* Utility Classes */
+.text-pokemon-red {
+  color: var(--pokemon-red);
+}
+
+.text-pokemon-blue {
+  color: var(--pokemon-blue);
+}
+
+.text-pokemon-yellow {
+  color: var(--pokemon-yellow);
+}
+
+.bg-pokemon-red {
+  background-color: var(--pokemon-red);
+}
+
+.bg-pokemon-blue {
+  background-color: var(--pokemon-blue);
+}
+
+.bg-pokemon-yellow {
+  background-color: var(--pokemon-yellow);
+}
+
+.border-pokemon-red {
+  border-color: var(--pokemon-red);
+}
+
+.border-pokemon-blue {
+  border-color: var(--pokemon-blue);
+}
+
+.border-pokemon-green {
+  border-color: var(--pokemon-green);
+}
+
+/* For proper flex layouts */
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.space-x-6 > * + * {
+  margin-left: 1.5rem;
+}
+
+/* Common spacing */
+.p-4 {
+  padding: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
