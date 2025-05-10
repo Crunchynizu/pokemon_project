@@ -1,0 +1,25 @@
+{% extends 'pokemon/base.html' %}
+{% load static%}
+{% block title %}Register - Pokémon Classifier{% endblock %}
+
+{% block content %}
+<div class="register-container">
+    <h2>Register</h2>
+    <form method="post" class="register-form">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <small class="error">{{ error }}</small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn">Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'pokemon/base.html' %}
+{% load static%}
+{% block title %}Home - Pokémon Classifier{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <h2>Welcome to Pokémon Classifier</h2>
+    <p>This application helps classify Pokémon based on their stats into different combat classes:</p>
+    <ul>
+        <li>Weak</li>
+        <li>Average</li>
+        <li>Strong</li>
+        <li>Pseudo-Legendary</li>
+        <li>Legendary</li>
+    </ul>
+    {% if not user.is_authenticated %}
+        <p>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to start making predictions.</p>
+    {% else %}
+        <p>Go to the <a href="{% url 'predict' %}">prediction page</a> to classify a Pokémon.</p>
+    {% endif %}
+</div>
+{% endblock %}

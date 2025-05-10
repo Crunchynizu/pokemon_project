@@ -1,0 +1,48 @@
+{% extends 'pokemon/base.html' %}
+{% load static%}
+{% block title %}Dashboard - Pokémon Classifier{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h2>Your Dashboard</h2>
+    <div class="stats-section">
+        <h3>Model Performance</h3>
+        <div class="model-stats">
+            {% for model in model_performances %}
+                <div class="stat-card">
+                    <h4>{{ model.model_name }}</h4>
+                    <p>Accuracy: {{ model.accuracy }}%</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="predictions-section">
+        <h3>Your Recent Predictions</h3>
+        {% if predictions %}
+            <table class="predictions-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Model Used</th>
+                        <th>Stats</th>
+                        <th>Prediction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pred in predictions %}
+                        <tr>
+                            <td>{{ pred.created_at|date:"Y-m-d H:i" }}</td>
+                            <td>{{ pred.model_used }}</td>
+                            <td>Total: {{ pred.total }}, HP: {{ pred.hp }}</td>
+                            <td>{{ pred.predicted_class }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No predictions made yet. Try making a prediction!</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
